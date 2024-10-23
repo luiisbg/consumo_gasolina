@@ -1,6 +1,6 @@
-# Gasolina Flotilla App
+# ServiceFlow
 
-**Gasolina Flotilla App** es una aplicación en Flutter diseñada para gestionar y calcular el consumo de gasolina de una flotilla de vehículos técnicos, que se dedican a reparar fibra óptica en zonas afectadas. La app permite a los usuarios capturar una foto del odómetro junto con la ubicación GPS actual, calculando así el consumo de combustible con base en los datos obtenidos. El valor de consumo predeterminado es de **10 km/l**, pero puede ser modificado.
+**ServiceFlow App** es una aplicación en Flutter diseñada para gestionar y calcular el consumo de gasolina de una flotilla de vehículos técnicos, que se dedican a reparar fibra óptica en zonas afectadas. La app permite a los usuarios capturar una foto del odómetro junto con la ubicación GPS actual, calculando así el consumo de combustible con base en los datos obtenidos. El valor de consumo predeterminado es de **10 km/l**, pero puede ser modificado.
 
 ## Características
 
