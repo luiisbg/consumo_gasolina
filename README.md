@@ -60,4 +60,4 @@ Es necesario crear un backend en una base de datos MySQL para el almacenamiento 
   NombreUsuario VARCHAR(60)                 -- Nombre completo del usuario.
   );
 
-**Nota** Es necesario modificar la calidad de la foto para que salga nítida ya que por default está en un 10% de su tamaño, y de igual forma en la base de datos cambiar a VARCHAR(MAX). 
+**Nota**: Es necesario modificar la calidad de la foto para que salga nítida ya que por default está en un 10% de su tamaño, y de igual forma en la base de datos cambiar a VARCHAR(MAX). 
