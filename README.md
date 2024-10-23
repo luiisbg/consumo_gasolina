@@ -6,28 +6,33 @@
 
 - **Captura de fotos del odómetro**: Permite a los técnicos tomar fotos del odómetro de los vehículos.
 - **Ubicación GPS**: Guarda la ubicación (latitud y longitud) en el momento en que se captura la foto.
-- **Ubicación GPS**: Muestra los diferentes servicios que tiene asignado un técnico para que acuda a atenderlos y finalizarlos.
-
+- **Gestión de servicios**: Muestra los diferentes servicios que tiene asignado un técnico para que acuda a atenderlos y finalizarlos.
 
 ## Requisitos
 
 ### 1. Flutter
 Es necesario tener instalado Flutter. Puedes seguir las instrucciones de instalación en: [Flutter - Get Started](https://flutter.dev/docs/get-started/install).
 
-### 1. MySQL
--- Es necesario crear un backend en una base de datos MySQL para el almacenamiento de los usuarios.
+### 2. MySQL
+Es necesario crear un backend en una base de datos MySQL para el almacenamiento de los usuarios.
 
--- Tabla para almacenar las lecturas del odómetro.
-CREATE TABLE LecturaOdometro (
-  Id INT(11) AUTO_INCREMENT PRIMARY KEY, -- Identificador único para cada lectura.
-  IdUsuario INT(11),                     -- Identificador del usuario asociado a la lectura.
-  Fecha DATETIME,                         -- Fecha y hora de la lectura.
-  Foto TEXT,                              -- Ruta o datos de la foto asociada a la lectura.
-  CONSTRAINT fk_lectura_usuario FOREIGN KEY (IdUsuario) REFERENCES usuarios(Id) -- Relación con la tabla de usuarios.
-);
+#### Tablas
 
--- Tabla para almacenar los servicios.
-CREATE TABLE Servicios (
+- **LecturaOdometro**: Tabla para almacenar las lecturas del odómetro.
+  
+  ```sql
+  CREATE TABLE LecturaOdometro (
+    Id INT(11) AUTO_INCREMENT PRIMARY KEY, -- Identificador único para cada lectura.
+    IdUsuario INT(11),                     -- Identificador del usuario asociado a la lectura.
+    Fecha DATETIME,                         -- Fecha y hora de la lectura.
+    Foto TEXT,                              -- Ruta o datos de la foto asociada a la lectura.
+    CONSTRAINT fk_lectura_usuario FOREIGN KEY (IdUsuario) REFERENCES usuarios(Id) -- Relación con la tabla de usuarios.
+  );
+
+- **Servicios**: Tabla para almacenar los servicios.
+  
+  ```sql
+  CREATE TABLE Servicios (
   Id INT(11) AUTO_INCREMENT PRIMARY KEY, -- Identificador único para cada servicio.
   Fecha DATE,                             -- Fecha del servicio.
   Tipo VARCHAR(50),                       -- Tipo de servicio.
@@ -44,12 +49,14 @@ CREATE TABLE Servicios (
   GPS_Inicio VARCHAR(50),                 -- Coordenadas GPS de inicio.
   GPS_Final VARCHAR(50),                  -- Coordenadas GPS de finalización.
   CONSTRAINT fk_servicios_usuario FOREIGN KEY (UsuarioId) REFERENCES usuarios(Id) -- Relación con la tabla de usuarios.
-);
+  );
 
--- Tabla para almacenar la información de los usuarios.
-CREATE TABLE usuarios (
+- **Usuarios**: Tabla para almacenar la información de los usuarios.
+  ```sql
+  CREATE TABLE usuarios (
   Id INT(11) AUTO_INCREMENT PRIMARY KEY,  -- Identificador único para cada usuario.
   UserName VARCHAR(255),                   -- Nombre de usuario único.
   Password VARCHAR(255),                    -- Contraseña del usuario.
   NombreUsuario VARCHAR(60)                 -- Nombre completo del usuario.
-);
+  );
+
